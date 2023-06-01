@@ -46,9 +46,12 @@ $('#keyword').on('keyup', function(){
 });
 
 //Ganti Kota
-$('#kota').on('change', function() {
+$('#idkota').on('change', function() {
   // alert( $(this).val() );
-
   this.form.submit();
+});
 
+
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
 });

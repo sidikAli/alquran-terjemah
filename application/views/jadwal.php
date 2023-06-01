@@ -1,7 +1,7 @@
 
 <div class="container">
 
-	<h3 class="center teal-text mb3">Jadwal Sholat Kota <?= $jadwal->results->location->city ?></h3>
+	<h3 class="center teal-text mb3">Jadwal Sholat <?= ucwords(strtolower($semuaJadwal->data->lokasi)) ?></h3>
 
 	<div class="row" style="margin: 0px;">
 		<div class="col">
@@ -10,18 +10,11 @@
 
 		<div class="col right">
 			<form method="post">
-				<select class="browser-default" id="kota" name="kota">
-					<option value="" disabled selected>Silahkan Pilih Kota</option>
-					<option value="Bandung">Bandung</option>
-					<option value="Bekasi">Bekasi</option>
-					<option value="Bogor">Bogor</option>
-					<option value="Depok">Depok</option>
-					<option value="Jakarta">Jakarta</option>
-					<option value="Malang">Malang</option>
-					<option value="Padang">Padang</option>
-					<option value="Surabaya">Surabaya</option>
-					<option value="Yogyakarta">Yogyakarta</option>
-					<option value="tasikmalaya">tasikmalaya</option>
+				<select class="browser-default js-example-basic-single"  id="idkota" name="idkota">
+					<!-- <option value="" disabled selected>Silahkan Pilih Kota</option> -->
+					<?php foreach($semuaKota as $kota) :?>
+						<option value="<?= $kota->id ?>"><?= $kota->lokasi ?></option>
+						<?php endforeach ?>
 				</select>
 			</form>
 		</div>
@@ -41,35 +34,23 @@
 		</thead>
 		<tbody>
 
-			<?php $jadwal = $jadwal->results->datetime; ?>
-			<?php foreach($jadwal as $jw): ?>
-				<?php if ($jw->date->gregorian == date('Y-m-d')): ?>
-					<tr class="grey darken-1 white-text">
-						<td><?= date('d', strtotime($jw->date->gregorian) );  ?></td>
-						<td><?= $jw->times->Fajr; ?></td>
-						<td><?= $jw->times->Sunrise; ?></td>
-						<td><?= $jw->times->Dhuhr; ?></td>
-						<td><?= $jw->times->Asr; ?></td>
-						<td><?= $jw->times->Maghrib; ?></td>
-						<td><?= $jw->times->Isha; ?></td>
-					</tr>
-					<?php else : ?>
-						<tr class="">
-							<td><?= date('d', strtotime($jw->date->gregorian) );  ?></td>
-							<td><?= $jw->times->Fajr; ?></td>
-							<td><?= $jw->times->Sunrise; ?></td>
-							<td><?= $jw->times->Dhuhr; ?></td>
-							<td><?= $jw->times->Asr; ?></td>
-							<td><?= $jw->times->Maghrib; ?></td>
-							<td><?= $jw->times->Isha; ?></td>
-						</tr>
-					<?php endif ?>
-				<?php endforeach ?>
+			<?php $semuaJadwal = $semuaJadwal->data->jadwal; ?>
+			<?php foreach($semuaJadwal as $jadwal): ?>
+				<tr class="grey darken-1 white-text">
+					<td><?= $jadwal->tanggal  ?></td>
+					<td><?= $jadwal->subuh; ?></td>
+					<td><?= $jadwal->terbit; ?></td>
+					<td><?= $jadwal->dzuhur; ?></td>
+					<td><?= $jadwal->ashar; ?></td>
+					<td><?= $jadwal->maghrib; ?></td>
+					<td><?= $jadwal->isya; ?></td>
+				</tr>
+			<?php endforeach ?>
 			</tbody>
 		</table>
 
 		<p class="grey darken-1 center">
-			<a class="white-text" href="https://waktusholat.org/">https://waktusholat.org/</a>
+			<a class="white-text" href="https://api.myquran.com/">https://api.myquran.com/</a>
 		</p>
 
 	</div>

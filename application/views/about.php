@@ -11,7 +11,7 @@
 		<p>Terimakasih untuk :</p>
 		<ol class="text">
 			<li><a href="http://qurandatabase.org">Quran database</a></li>
-			<li><a href="https://waktusholat.org/">Waktusholat.org</a></li>
+			<li><a href="https://api.myquran.com/">API myQuran.com</a></li>
 			<li><a href="http://fontawesome.com/">Font Awesome</a></li>
 			<li><a href="http://flaticon.com/">Flat Icon</a></li>
 			<li><a href="https://kemenag.go.id/">Kemenag</a></li>

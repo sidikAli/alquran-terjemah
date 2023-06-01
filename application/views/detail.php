@@ -21,7 +21,7 @@
 		<?php endif ?>
 		<?php foreach($ayats as $ayat) : ?>
 			<li class="collection-item" id="<?= $ayat['verseID'] ?>">
-
+				<div class="number"><?= $ayat['verseID'] ?></div>
 				<!-- arab -->
 				<div class="row">
 					<div class="col m12 s12 l12">
