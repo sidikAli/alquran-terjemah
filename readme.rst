@@ -1,7 +1,7 @@
 ###################
 Al-quran Terjemahan + Jadwal Sholat
 ###################
-Demo : https://www.quran.sidali.top
+Demo : https://www.alquran.sidikali.com
 
 Dibuat menggunakan Codeigniter 3 & Materialize
 
